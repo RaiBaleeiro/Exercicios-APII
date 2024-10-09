@@ -1,5 +1,6 @@
-package Exercicios.PacoteArrayList.Academico_Pacote.modelo;
+package Academico_Pacote.modelo;
 
+import Academico_Pacote.controle.ControleAluno;
 
 public class Aluno {
 private String nome;

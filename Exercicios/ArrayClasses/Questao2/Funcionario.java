@@ -8,7 +8,7 @@ public class Funcionario {
     private String cargo;
     private String dataAdmissao;
 
-    //O problema é a necessidade de um programa para armazenar os dados de cada funcionario e tambem calcular seu salario. Apenas um objeto será utilizado, o objeto Funcionario.
+    //O problema é a necessidade de um programa para armazenar os dados de cada funcionario e também calcular seu salário. Apenas um objeto será utilizado, o objeto Funcionario.
 
     public Funcionario(String nome,long cpf,float valorHora,String dataAdmissao,String cargo)
     {
