@@ -52,5 +52,6 @@ public void setAlunos(Aluno a) {
 
 public void desmatricular(Aluno a){
     alunos.remove(a);
+    cont--;
 }
 }

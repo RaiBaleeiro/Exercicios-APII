@@ -6,6 +6,7 @@ public class Aluno {
 private String nome;
 private int matricula;
 private static int cont=0;
+
 public Aluno (String nome){
 
 this.nome=nome;

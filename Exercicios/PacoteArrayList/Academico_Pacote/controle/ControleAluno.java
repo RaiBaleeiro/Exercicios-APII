@@ -14,7 +14,7 @@ public class ControleAluno {
     public Aluno buscarAluno(int matricula){
         Aluno aluno = null;
         for(Aluno a: alunos){
-            if(a.getMatricula().equals(matricula)){
+            if(a.getMatricula()==matricula){
                 aluno = a;
                 break;
             }
