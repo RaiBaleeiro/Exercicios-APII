@@ -20,19 +20,22 @@ public class Teste {
 op = Integer.parseInt(JOptionPane.showInputDialog(menu()));
 
 ArrayList<Conta> contas = new ArrayList<>();
+ArrayList<ContaEspecial> contasEspeciais = new ArrayList<>();
 
 while (op!=0){
 switch(op){
 
 case 1: {//cadastrar conta
 
-    boolean especial = Boolean.parseBoolean(JOptionPane.showInputDialog("Deseja criar uma conta especial ou normal? Digite 1 para especial e 0 para normal."));
-    if(especial){
+    int especial = Integer.parseInt(JOptionPane.showInputDialog("Deseja criar uma conta especial ou normal? Digite 1 para especial e 0 para normal."));
+    if(especial == 1){
         String nome = JOptionPane.showInputDialog("Digite seu nome para que possamos criar a conta");
         ContaEspecial conta = new ContaEspecial(nome);
+        contasEspeciais.add(conta);
     }else{
         String nome = JOptionPane.showInputDialog("Digite seu nome para que possamos criar a conta");
         Conta conta = new Conta(nome);
+        contas.add(conta);
     }
 break;
 
@@ -43,11 +46,17 @@ case 2:{//depositar
         if(conta.getNomeTitular().equals(nome)){
             double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que deseja depositar: "));
             JOptionPane.showMessageDialog(null, conta.depositar(valor));
+            break;
         }
     }
-
-break;
-
+    for(ContaEspecial conta:contasEspeciais){
+        if(conta.getNomeTitular().equals(nome)){
+            double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que deseja depositar: "));
+            JOptionPane.showMessageDialog(null, conta.depositar(valor));
+            break;
+        }
+    }
+    break;
 }
 case 3:{//sacar
     String nome = JOptionPane.showInputDialog("Digite o nome da conta que deseja sacar dinheiro");
@@ -55,6 +64,14 @@ case 3:{//sacar
         if(conta.getNomeTitular().equals(nome)){
             double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que deseja sacar: "));
             JOptionPane.showMessageDialog(null, conta.sacar(valor));
+            break;
+        }
+    }
+    for(ContaEspecial conta:contasEspeciais){
+        if(conta.getNomeTitular().equals(nome)){
+            double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que deseja sacar: "));
+            JOptionPane.showMessageDialog(null, conta.sacarEspecial(valor));
+            break;
         }
     }
 
@@ -62,9 +79,19 @@ break;
 
 }
 case 4:{//Consultar saldo
-    int codigo = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo da turma que deseja saber os alunos"));
-    JOptionPane.showMessageDialog(null,controleTurma.listarAlunos(codigo));
-
+    String nome = JOptionPane.showInputDialog("Digite o nome da conta que deseja consultar o saldo");
+    for(Conta conta:contas){
+        if(conta.getNomeTitular().equals(nome)){
+            JOptionPane.showMessageDialog(null, conta.toString());
+            break;
+        }
+    }
+    for(ContaEspecial conta:contasEspeciais){
+        if(conta.getNomeTitular().equals(nome)){
+            JOptionPane.showMessageDialog(null, conta.toString());
+            break;
+        }
+    }
 break;
 }
 case 0:{

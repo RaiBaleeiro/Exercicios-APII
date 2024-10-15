@@ -46,12 +46,20 @@ public class Conta {
         }else return "Não é possível depositar um valor negativo!";
     }
 
+    public void reduzirSaldo(double valor){
+        this.saldo -= valor;
+    }
+
     public String sacar(double valor){
         if(valor>0){
+            if(saldo>=valor){
             double taxa = valor*0.05;
-            valor -= taxa;
+            this.saldo -= valor;
 
-            return "Valor sacado com sucesso! Você irá receber "+valor+" após a taxa de operação.";
+            return "Valor sacado com sucesso! Você irá pagar R$"+taxa+" pela transação";
+            }else{
+                return "Valor desejado é maior do que o saldo disponível!";
+            }
         }else if(valor == 0){
             return "Nada aconteceu";
         } else return "Não é possível sacar um valor negativo!";
