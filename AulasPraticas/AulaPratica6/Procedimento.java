@@ -1,28 +1,28 @@
 public class Procedimento{
     private int codigo;
     private String tipoProcedimento;
-    private int custo;
+    private double custo;
 
-    public Procedimento(int codigo, String tipoProcedimento, int custo){
-        this.codigo = codigo;
+    private static int contCodigo = 0;
+
+    public Procedimento(String tipoProcedimento, double custo){
+        this.codigo = contCodigo;
         this.tipoProcedimento = tipoProcedimento;
         this.custo = custo;
+
+        contCodigo++;
     }
 
     public int getCodigo() {
         return codigo;
     }
 
-    public int getCusto() {
+    public double getCusto() {
         return custo;
     }
 
     public String getTipoProcedimento() {
         return tipoProcedimento;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public void setCusto(int custo) {
@@ -34,7 +34,7 @@ public class Procedimento{
     }
 
     public String imprimir(){
-        return getCodigo() + ": " + getTipoProcedimento() + "\n" + "R$" + getCusto();
+        return "Codigo: "+getCodigo() + "\nProcedimento: "+ getTipoProcedimento() + "\n" + "R$" + getCusto()+"\n\n";
     }
 
 
