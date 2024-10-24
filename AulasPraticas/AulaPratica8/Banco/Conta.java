@@ -11,20 +11,20 @@ public class Conta {
     //Construtores
     public Conta (){
        numeroConta = ++identificador;
-       historico = new ArrayList();
+       historico = new ArrayList<>();
     }
     
     public Conta(String cliente){
         numeroConta = ++identificador;
         this.cliente=cliente;
         saldo = 0.0;
-        historico = new ArrayList();
+        historico = new ArrayList<>();
     }
     public Conta (String cliente, double saldo){
         numeroConta=++identificador; 
         this.cliente = cliente;
         this.saldo = saldo;   
-        historico = new ArrayList();
+        historico = new ArrayList<>();
     }
     
     // métodos
@@ -43,6 +43,10 @@ public class Conta {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public void adicionarHistorico(String texto){
+        historico.add(texto);
     }
     
     public void depositar (double valor){
@@ -73,4 +77,9 @@ public class Conta {
             s = s + historico.get(i) + "\n";
         return s;
     }    
+
+    public String recuperarDadosConta(){
+        return "Número: "+this.numeroConta+"\nSaldo: "+this.saldo;
+    }
+
 }
