@@ -1,6 +1,6 @@
 package Banco;
 import java.util.ArrayList;
-public class Conta {
+public abstract class Conta {
       // atributos
     private int numeroConta;
     private String cliente;
@@ -82,4 +82,13 @@ public class Conta {
         return "Número: "+this.numeroConta+"\nSaldo: "+this.saldo;
     }
 
+    public abstract String getTipo();
 }
+
+//Questão 7: É uma classe que não pode ser instanciada diretamente e serve como base para outras classes. Permite definir métodos que as subclasses devem implementar.
+
+//Questão8: Se o método getTipo for abstrato na classe Conta, todas as classes filhas são obrigadas a implementá-lo. Caso não seja implementado, haverá erro de compilação.
+
+//Questão 10: Esse método getTipo abstrato serve como uma fundação para futuras classes que possam ser construídas, já que força as classes que implementam a classe Conta a utilizá-la, reduz erros e força uma uniformização.
+
+//Questão 11: Sim, métodos abstratos podem ser chamados dentro de métodos da própria classe abstrata, desde que sejam implementados pelas subclasses antes de serem usados em tempo de execução.

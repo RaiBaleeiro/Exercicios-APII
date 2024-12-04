@@ -2,7 +2,8 @@ package Banco;
 public class Poupanca extends Conta{
     private double rendimento;
 
-    public Poupanca(double rendimento){
+    public Poupanca(String nome, double saldo, double rendimento){
+        super(nome, saldo);
         this.rendimento=rendimento;
     }
 
@@ -16,6 +17,10 @@ public class Poupanca extends Conta{
 
     public String calcularRendimento(){
         return "Rendimento: "+getSaldo()*rendimento;
+    }
+
+    public String getTipo(){
+        return "Poupança";
     }
 
 }

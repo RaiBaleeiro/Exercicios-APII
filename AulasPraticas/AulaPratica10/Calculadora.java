@@ -2,19 +2,24 @@ package AulaPratica10;
 
 public class Calculadora {
     
-    public int somar(int x, int y){
-        return x+y;
+// método somar
+public double somar (int n1, int n2){
+    return n1+n2;
     }
-    
-    public int subtrair (int x, int y){
-        return x-y;
+    // método subtrair
+    public double subtrair (int n1, int n2){
+    return n1-n2;
     }
-    
-    public int multiplicar (int x, int y){
-        return x*y;
+    // método multiplicar
+    public double multiplicar (int n1, int n2){
+    return n1*n2;
     }
-    
-    public int dividir (int x, int y){
-        return x/y;
-    }
+    // método dividir
+    public double dividir (int n1, int n2) {
+        if (n2 ==0){
+        throw new ArithmeticException("Divisão por zero");
+        }
+        else
+        return n1/n2;
+        }
 }
